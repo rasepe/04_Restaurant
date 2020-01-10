@@ -49,7 +49,7 @@ plat. (1 punt)
 			System.out.println("Introdueix nom plat " + (i+1) +":");
 			menu[i] = sc.next();
 			
-			System.out.println("Introdueix preu plat " + (i+1) +" (enter):");
+			System.out.println("Introdueix preu plat " + (i+1) +" (núm. enter):");
 			preus[i] = sc.nextInt();
 		
 		}
