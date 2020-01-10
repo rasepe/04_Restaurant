@@ -48,22 +48,20 @@ plat. (1 punt)
 
 			System.out.println("Introdueix nom plat " + (i+1) +":");
 			menu[i] = sc.next();
-			
+
 			System.out.println("Introdueix preu plat " + (i+1) +" (núm. enter):");
 			preus[i] = sc.nextInt();
-		
+
 		}
 
 
-		for (int i=0; i<menu.length; i++) {
-			
+		for (int i=0; i<menu.length; i++) {	
 			System.out.println("Plat " + (i+1) + ": " + menu[i] + ". Preu: " + preus[i]);
-
 		}
-        boolean seguirdemanant = true;
-        String platdemanat = "";
-        List<String> comanda = new ArrayList<String>(); 
-        String resposta = "";
+		boolean seguirdemanant = true;
+		String platdemanat = "";
+		List<String> comanda = new ArrayList<String>(); 
+		String resposta = "";
 		while (seguirdemanant == true) {
 			System.out.println("Quin plat vols?:");
 			platdemanat = sc.next();
@@ -73,9 +71,9 @@ plat. (1 punt)
 			if (resposta.equals("N")) {
 				seguirdemanant = false;
 			}
-			
+
 		}
-		
+
 		/*
 		 * FASE 3 (5 punts) ● Un cop hem acabat de demanar el menjar, haurem de comparar
 		 * la llista amb l’array que hem fet al principi. En el cas que la informació
@@ -83,25 +81,25 @@ plat. (1 punt)
 		 * preu del producte demanat; en el cas contrari haurem de mostrar un missatge
 		 * que digui que el producte que hem demanat no existeix.
 		 */
-		
+
 		//recorrem arraylist
-		
+
 		Iterator<String> it = comanda.iterator();
 		boolean coincidencia = false;
 		//llegir plat:
 		while(it.hasNext()){
-		    String platcomparar = it.next();
-		    //si està al menú, anem sumant el preu:
-		    for (int i=0; i<menu.length; i++) {
-		    	if (platcomparar.equals(menu[i])) {
-		    		preu += preus[i];
-		    		coincidencia = true;
-		    	}
-		    }
-		    //si no està al menú, avisem:
-		if (coincidencia == false) {
-			System.out.println("No existeix el plat " + platcomparar);
-		}
+			String platcomparar = it.next();
+			//si està al menú, anem sumant el preu:
+			for (int i=0; i<menu.length; i++) {
+				if (platcomparar.equals(menu[i])) {
+					preu += preus[i];
+					coincidencia = true;
+				}
+			}
+			//si no està al menú, avisem:
+			if (coincidencia == false) {
+				System.out.println("No existeix el plat " + platcomparar);
+			}
 		}
 		System.out.println("El preu total dels plats demanats és: " + preu);
 		int quantitatBitllet500 = 0;
@@ -112,53 +110,40 @@ plat. (1 punt)
 		int quantitatBitllet10 = 0;
 		int quantitatBitllet5 = 0;
 		int canvi = 0;
-		
+
 		if (preu >= bitllet500) {
 			quantitatBitllet500 = preu / bitllet500;
-			//System.out.println("Hem d'utilitzar " + quantitatBitllet500 + " bitllets de 500");
 			preu = preu - (quantitatBitllet500 * bitllet500);
-			//System.out.println("Resten per pagar " + preu + " euros");
 		}
 		if (preu >= bitllet200) {
 			quantitatBitllet200 = preu / bitllet200;
-			//System.out.println("Hem d'utilitzar " + quantitatBitllet200 + " bitllets de 200");
 			preu = preu - (quantitatBitllet200 * bitllet200);
-			//System.out.println("Resten per pagar " + preu + " euros");
 		}
 		if (preu >= bitllet100) {
 			quantitatBitllet100 = preu / bitllet100;
-			//System.out.println("Hem d'utilitzar " + quantitatBitllet100 + " bitllets de 100");
 			preu = preu - (quantitatBitllet100 * bitllet100);
-			//System.out.println("Resten per pagar " + preu + " euros");
 		}
 		if (preu >= bitllet50) {
 			quantitatBitllet50 = preu / bitllet50;
-			//System.out.println("Hem d'utilitzar " + quantitatBitllet50 + " bitllets de 50");
 			preu = preu - (quantitatBitllet50 * bitllet50);
-			//System.out.println("Resten per pagar " + preu + " euros");
 		}
 		if (preu >= bitllet20) {
 			quantitatBitllet20 = preu / bitllet20;
-			//System.out.println("Hem d'utilitzar " + quantitatBitllet20 + " bitllets de 20");
 			preu = preu - (quantitatBitllet20 * bitllet20);
-			//System.out.println("Resten per pagar " + preu + " euros");
 		}
 		if (preu >= bitllet10) {
 			quantitatBitllet10 = preu / bitllet10;
-			//System.out.println("Hem d'utilitzar " + quantitatBitllet10 + " bitllets de 10");
 			preu = preu - (quantitatBitllet10 * bitllet10);
-			//System.out.println("Resten per pagar " + preu + " euros");
 		}
 		if (preu >= bitllet5) {
 			quantitatBitllet5 = preu / bitllet5;
-			//System.out.println("Hem d'utilitzar " + quantitatBitllet5 + " bitllets de 5");
 			preu = preu - (quantitatBitllet5 * bitllet5);
-			//System.out.println("Resten per pagar " + preu + " euros");
 		}
 		if (preu > 0) {
 			quantitatBitllet5++;
 			canvi = 5 - preu;
 		}
+
 		System.out.println("Hem d'utilitzar " + quantitatBitllet500 + " bitllets de 500");
 		System.out.println("Hem d'utilitzar " + quantitatBitllet200 + " bitllets de 200");
 		System.out.println("Hem d'utilitzar " + quantitatBitllet100 + " bitllets de 100");
@@ -167,7 +152,7 @@ plat. (1 punt)
 		System.out.println("Hem d'utilitzar " + quantitatBitllet10 + " bitllets de 10");
 		System.out.println("Hem d'utilitzar " + quantitatBitllet5 + " bitllets de 5");
 		System.out.println("El canvi que ens retornen és " + canvi + " euros");
-		
+
 		System.out.println("FI DEL PROGRAMA");
 		sc.close();
 	}
