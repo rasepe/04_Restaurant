@@ -19,13 +19,13 @@ variable per guardar el preu total del menjar. (1 punt)
 ● Creeu dos arrays, un on guardarem el menú (5 plats) i un altre on guardarem el preu de cada
 plat. (1 punt)
 		 */
-		int bitllet1 = 5;
-		int bitllet2 = 10;
-		int bitllet3 = 20;
-		int bitllet4 = 50;
-		int bitllet5 = 100;
-		int bitllet6 = 200;
-		int bitllet7 = 500;
+		int bitllet5 = 5;
+		int bitllet10 = 10;
+		int bitllet20 = 20;
+		int bitllet50 = 50;
+		int bitllet100 = 100;
+		int bitllet200 = 200;
+		int bitllet500 = 500;
 
 		int preu = 0;
 
@@ -103,8 +103,70 @@ plat. (1 punt)
 			System.out.println("No existeix el plat " + platcomparar);
 		}
 		}
+		System.out.println("El preu total dels plats demanats és: " + preu);
+		int quantitatBitllet500 = 0;
+		int quantitatBitllet200 = 0;
+		int quantitatBitllet100 = 0;
+		int quantitatBitllet50 = 0;
+		int quantitatBitllet20 = 0;
+		int quantitatBitllet10 = 0;
+		int quantitatBitllet5 = 0;
+		int canvi = 0;
 		
-		
+		if (preu >= bitllet500) {
+			quantitatBitllet500 = preu / bitllet500;
+			//System.out.println("Hem d'utilitzar " + quantitatBitllet500 + " bitllets de 500");
+			preu = preu - (quantitatBitllet500 * bitllet500);
+			//System.out.println("Resten per pagar " + preu + " euros");
+		}
+		if (preu >= bitllet200) {
+			quantitatBitllet200 = preu / bitllet200;
+			//System.out.println("Hem d'utilitzar " + quantitatBitllet200 + " bitllets de 200");
+			preu = preu - (quantitatBitllet200 * bitllet200);
+			//System.out.println("Resten per pagar " + preu + " euros");
+		}
+		if (preu >= bitllet100) {
+			quantitatBitllet100 = preu / bitllet100;
+			//System.out.println("Hem d'utilitzar " + quantitatBitllet100 + " bitllets de 100");
+			preu = preu - (quantitatBitllet100 * bitllet100);
+			//System.out.println("Resten per pagar " + preu + " euros");
+		}
+		if (preu >= bitllet50) {
+			quantitatBitllet50 = preu / bitllet50;
+			//System.out.println("Hem d'utilitzar " + quantitatBitllet50 + " bitllets de 50");
+			preu = preu - (quantitatBitllet50 * bitllet50);
+			//System.out.println("Resten per pagar " + preu + " euros");
+		}
+		if (preu >= bitllet20) {
+			quantitatBitllet20 = preu / bitllet20;
+			//System.out.println("Hem d'utilitzar " + quantitatBitllet20 + " bitllets de 20");
+			preu = preu - (quantitatBitllet20 * bitllet20);
+			//System.out.println("Resten per pagar " + preu + " euros");
+		}
+		if (preu >= bitllet10) {
+			quantitatBitllet10 = preu / bitllet10;
+			//System.out.println("Hem d'utilitzar " + quantitatBitllet10 + " bitllets de 10");
+			preu = preu - (quantitatBitllet10 * bitllet10);
+			//System.out.println("Resten per pagar " + preu + " euros");
+		}
+		if (preu >= bitllet5) {
+			quantitatBitllet5 = preu / bitllet5;
+			//System.out.println("Hem d'utilitzar " + quantitatBitllet5 + " bitllets de 5");
+			preu = preu - (quantitatBitllet5 * bitllet5);
+			//System.out.println("Resten per pagar " + preu + " euros");
+		}
+		if (preu > 0) {
+			quantitatBitllet5++;
+			canvi = 5 - preu;
+		}
+		System.out.println("Hem d'utilitzar " + quantitatBitllet500 + " bitllets de 500");
+		System.out.println("Hem d'utilitzar " + quantitatBitllet200 + " bitllets de 200");
+		System.out.println("Hem d'utilitzar " + quantitatBitllet100 + " bitllets de 100");
+		System.out.println("Hem d'utilitzar " + quantitatBitllet50 + " bitllets de 50");
+		System.out.println("Hem d'utilitzar " + quantitatBitllet20 + " bitllets de 20");
+		System.out.println("Hem d'utilitzar " + quantitatBitllet10 + " bitllets de 10");
+		System.out.println("Hem d'utilitzar " + quantitatBitllet5 + " bitllets de 5");
+		System.out.println("El canvi que ens retornen és " + canvi + " euros");
 		
 		System.out.println("FI DEL PROGRAMA");
 		sc.close();
